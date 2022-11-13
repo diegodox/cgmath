@@ -77,7 +77,7 @@ pub fn ortho<S: BaseFloat>(left: S, right: S, bottom: S, top: S, near: S, far: S
 }
 
 /// A perspective projection based on a vertical field-of-view angle.
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "rustc-serialize", derive(RustcEncodable, RustcDecodable))]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct PerspectiveFov<S> {
@@ -174,7 +174,7 @@ impl<S: BaseFloat> From<PerspectiveFov<S>> for Matrix4<S> {
 }
 
 /// A perspective projection with arbitrary left/right/bottom/top distances
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Perspective<S> {
     pub left: S,
@@ -239,7 +239,7 @@ impl<S: BaseFloat> From<Perspective<S>> for Matrix4<S> {
 }
 
 /// An orthographic projection with arbitrary left/right/bottom/top distances
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Ortho<S> {
     pub left: S,

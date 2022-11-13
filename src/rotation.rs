@@ -162,7 +162,7 @@ pub trait Rotation3:
 /// let unit_y3 = (rot_half * rot_half).rotate_vector(unit_x);
 /// // assert_ulps_eq!(&unit_y3, &unit_y2); // TODO: Figure out how to use this
 /// ```
-#[derive(PartialEq, Copy, Clone)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Basis2<S> {
     mat: Matrix2<S>,
@@ -308,7 +308,7 @@ impl<S: fmt::Debug> fmt::Debug for Basis2<S> {
 /// inversion, can be implemented more efficiently than the implementations for
 /// `math::Matrix3`. To ensure orthogonality is maintained, the operations have
 /// been restricted to a subset of those implemented on `Matrix3`.
-#[derive(PartialEq, Copy, Clone)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Basis3<S> {
     mat: Matrix3<S>,

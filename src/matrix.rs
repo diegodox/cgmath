@@ -43,7 +43,7 @@ use mint;
 ///
 /// This type is marked as `#[repr(C)]`.
 #[repr(C)]
-#[derive(Copy, Clone, PartialEq)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Matrix2<S> {
     /// The first column of the matrix.
@@ -56,7 +56,7 @@ pub struct Matrix2<S> {
 ///
 /// This type is marked as `#[repr(C)]`.
 #[repr(C)]
-#[derive(Copy, Clone, PartialEq)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Matrix3<S> {
     /// The first column of the matrix.
@@ -71,7 +71,7 @@ pub struct Matrix3<S> {
 ///
 /// This type is marked as `#[repr(C)]`.
 #[repr(C)]
-#[derive(Copy, Clone, PartialEq)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Matrix4<S> {
     /// The first column of the matrix.

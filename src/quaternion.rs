@@ -43,7 +43,7 @@ use mint;
 ///
 /// This type is marked as `#[repr(C)]`.
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Quaternion<S> {
     /// The vector part of the quaternion.

@@ -36,7 +36,7 @@ use num::{BaseFloat, BaseNum};
 ///
 /// This type is marked as `#[repr(C)]`.
 #[repr(C)]
-#[derive(Copy, Clone, PartialEq, PartialOrd)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Rad<S>(pub S);
 
@@ -44,7 +44,7 @@ pub struct Rad<S>(pub S);
 ///
 /// This type is marked as `#[repr(C)]`.
 #[repr(C)]
-#[derive(Copy, Clone, PartialEq, PartialOrd)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Deg<S>(pub S);
 
