@@ -98,6 +98,7 @@ pub mod matrix2 {
     }
 
     #[test]
+    #[allow(clippy::op_ref)]
     fn test_mul_matrix() {
         assert_eq!(A * B, Matrix2::new(10.0f64, 22.0f64, 13.0f64, 29.0f64));
 
@@ -356,6 +357,7 @@ pub mod matrix3 {
     }
 
     #[test]
+    #[allow(clippy::op_ref)]
     fn test_mul_matrix() {
         assert_eq!(
             A * B,
@@ -699,7 +701,7 @@ pub mod matrix3 {
 
             let rot = Matrix3::from_axis_angle(vec3(1.0, 1.0, 0.0).normalize(), Deg(90.0));
             assert_ulps_eq!(
-                vec3(2.0f32.sqrt() / 2.0, -2.0f32.sqrt() / 2.0, 0.0),
+                vec3(2.0f32.sqrt() / 2.0, -(2.0f32.sqrt()) / 2.0, 0.0),
                 rot * vec
             );
         }
@@ -710,7 +712,7 @@ pub mod matrix3 {
 
             let rot = Matrix3::from_axis_angle(vec3(0.0, 1.0, 1.0).normalize(), Deg(-90.0));
             assert_ulps_eq!(
-                vec3(0.0, -2.0f32.sqrt() / 2.0, 2.0f32.sqrt() / 2.0),
+                vec3(0.0, -(2.0f32.sqrt()) / 2.0, 2.0f32.sqrt() / 2.0),
                 rot * vec
             );
         }
@@ -721,7 +723,7 @@ pub mod matrix3 {
 
             let rot = Matrix3::from_axis_angle(vec3(1.0, 0.0, 1.0).normalize(), Deg(90.0));
             assert_ulps_eq!(
-                vec3(-2.0f32.sqrt() / 2.0, 0.0, 2.0f32.sqrt() / 2.0),
+                vec3(-(2.0f32.sqrt()) / 2.0, 0.0, 2.0f32.sqrt() / 2.0),
                 rot * vec
             );
         }
@@ -966,6 +968,7 @@ pub mod matrix4 {
     }
 
     #[test]
+    #[allow(clippy::op_ref)]
     fn test_mul_matrix() {
         assert_eq!(
             A * B,

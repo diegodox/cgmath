@@ -638,6 +638,7 @@ mod tests {
         #[test]
         #[should_panic]
         fn test_index_out_of_bounds() {
+            #[allow(clippy::no_effect)]
             VECTOR2[2];
         }
 
@@ -759,6 +760,7 @@ mod tests {
         #[test]
         #[should_panic]
         fn test_index_out_of_bounds() {
+            #[allow(clippy::no_effect)]
             VECTOR3[3];
         }
 
@@ -886,6 +888,7 @@ mod tests {
         #[test]
         #[should_panic]
         fn test_index_out_of_bounds() {
+            #[allow(clippy::no_effect)]
             VECTOR4[4];
         }
 

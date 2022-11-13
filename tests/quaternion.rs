@@ -265,6 +265,7 @@ mod arc {
     #[test]
     fn test_same() {
         let v = Vector3::unit_x();
+        #[allow(clippy::clone_on_copy)]
         let q = Quaternion::from_arc(v.clone(), v, None);
         assert_eq!(q, Quaternion::new(1.0, 0.0, 0.0, 0.0));
     }
@@ -376,7 +377,7 @@ mod rotate_from_axis_angle {
 
         let rot = Quaternion::from_axis_angle(vec3(1.0, 1.0, 0.0).normalize(), Deg(90.0));
         assert_ulps_eq!(
-            vec3(2.0f32.sqrt() / 2.0, -2.0f32.sqrt() / 2.0, 0.0),
+            vec3(2.0f32.sqrt() / 2.0, -(2.0f32.sqrt()) / 2.0, 0.0),
             rot * vec
         );
     }
@@ -387,7 +388,7 @@ mod rotate_from_axis_angle {
 
         let rot = Quaternion::from_axis_angle(vec3(0.0, 1.0, 1.0).normalize(), Deg(-90.0));
         assert_ulps_eq!(
-            vec3(0.0, -2.0f32.sqrt() / 2.0, 2.0f32.sqrt() / 2.0),
+            vec3(0.0, -(2.0f32.sqrt()) / 2.0, 2.0f32.sqrt() / 2.0),
             rot * vec
         );
     }
@@ -398,7 +399,7 @@ mod rotate_from_axis_angle {
 
         let rot = Quaternion::from_axis_angle(vec3(1.0, 0.0, 1.0).normalize(), Deg(90.0));
         assert_ulps_eq!(
-            vec3(-2.0f32.sqrt() / 2.0, 0.0, 2.0f32.sqrt() / 2.0),
+            vec3(-(2.0f32.sqrt()) / 2.0, 0.0, 2.0f32.sqrt() / 2.0),
             rot * vec
         );
     }
@@ -429,7 +430,7 @@ mod rotate_between_vectors {
 
     #[test]
     fn test_around_z_90_ccw() {
-        let expected = Quaternion::new(0.5_f32.sqrt(), 0.0, 0.0, -0.5_f32.sqrt());
+        let expected = Quaternion::new(0.5_f32.sqrt(), 0.0, 0.0, -(0.5_f32.sqrt()));
 
         let a = vec3(-26.0, 0.0, 0.0);
         let b = vec3(0.0, 10.0, 0.0);

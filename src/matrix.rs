@@ -135,6 +135,7 @@ impl<S> Matrix3<S> {
     /// Create a new matrix, providing values for each index.
     #[inline]
     #[rustfmt::skip]
+    #[allow(clippy::too_many_arguments)]
     pub const fn new(
         c0r0:S, c0r1:S, c0r2:S,
         c1r0:S, c1r1:S, c1r2:S,
@@ -289,6 +290,7 @@ impl<S> Matrix4<S> {
     #[inline]
     #[allow(clippy::deprecated_cfg_attr)]
     #[cfg_attr(rustfmt, rustfmt_skip)]
+    #[allow(clippy::too_many_arguments)]
     pub const fn new(
         c0r0: S, c0r1: S, c0r2: S, c0r3: S,
         c1r0: S, c1r1: S, c1r2: S, c1r3: S,

@@ -419,6 +419,7 @@ mod tests {
         #[test]
         #[should_panic]
         fn test_index_out_of_bounds() {
+            #[allow(clippy::no_effect)]
             POINT2[2];
         }
 
@@ -532,6 +533,7 @@ mod tests {
         #[test]
         #[should_panic]
         fn test_index_out_of_bounds() {
+            #[allow(clippy::no_effect)]
             POINT3[3];
         }
 

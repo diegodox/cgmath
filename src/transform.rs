@@ -177,6 +177,7 @@ where
         } else {
             let s = P::Scalar::one() / self.scale;
             let r = self.rot.invert();
+            #[allow(clippy::clone_on_copy)]
             let d = r.rotate_vector(self.disp.clone()) * -s;
             Some(Decomposed {
                 scale: s,

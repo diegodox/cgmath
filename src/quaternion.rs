@@ -305,6 +305,7 @@ impl_assignment_operator!(<S: BaseFloat> RemAssign<S> for Quaternion<S> {
 
 impl_operator!(<S: BaseFloat> Mul<Vector3<S> > for Quaternion<S> {
     fn mul(lhs, rhs) -> Vector3<S> {{
+        #[allow(clippy::clone_on_copy)]
         let rhs = rhs.clone();
         let two: S = cast(2i8).unwrap();
         let tmp = lhs.v.cross(rhs) + (rhs * lhs.s);
