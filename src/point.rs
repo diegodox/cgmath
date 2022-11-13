@@ -623,3 +623,32 @@ mod tests {
         }
     }
 }
+
+#[cfg(feature = "rstar")]
+impl<F: std::fmt::Debug + Clone + Copy + PartialEq + rstar::RTreeNum> rstar::Point for Point3<F> {
+    type Scalar = F;
+
+    const DIMENSIONS: usize = 3;
+
+    fn generate(mut generator: impl FnMut(usize) -> Self::Scalar) -> Self {
+        crate::point3(generator(0), generator(1), generator(2))
+    }
+
+    fn nth(&self, index: usize) -> Self::Scalar {
+        match index {
+            0 => self.x,
+            1 => self.y,
+            2 => self.z,
+            _ => unreachable!(),
+        }
+    }
+
+    fn nth_mut(&mut self, index: usize) -> &mut Self::Scalar {
+        match index {
+            0 => &mut self.x,
+            1 => &mut self.y,
+            2 => &mut self.z,
+            _ => unreachable!(),
+        }
+    }
+}
