@@ -134,7 +134,7 @@ impl<S: BaseFloat> Matrix2<S> {
 impl<S> Matrix3<S> {
     /// Create a new matrix, providing values for each index.
     #[inline]
-    #[cfg_attr(rustfmt, rustfmt_skip)]
+    #[rustfmt::skip]
     pub const fn new(
         c0r0:S, c0r1:S, c0r2:S,
         c1r0:S, c1r1:S, c1r2:S,
@@ -162,6 +162,7 @@ impl<S: BaseFloat> Matrix3<S> {
     /// Create a homogeneous transformation matrix from a translation vector.
     #[inline]
     pub fn from_translation(v: Vector2<S>) -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             S::one(), S::zero(), S::zero(),
@@ -179,6 +180,7 @@ impl<S: BaseFloat> Matrix3<S> {
     /// Create a homogeneous transformation matrix from a set of scale values.
     #[inline]
     pub fn from_nonuniform_scale(x: S, y: S) -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             x, S::zero(), S::zero(),
@@ -215,6 +217,7 @@ impl<S: BaseFloat> Matrix3<S> {
         // http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations
         let (s, c) = Rad::sin_cos(theta.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             S::one(), S::zero(), S::zero(),
@@ -228,6 +231,7 @@ impl<S: BaseFloat> Matrix3<S> {
         // http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations
         let (s, c) = Rad::sin_cos(theta.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             c, S::zero(), -s,
@@ -241,6 +245,7 @@ impl<S: BaseFloat> Matrix3<S> {
         // http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations
         let (s, c) = Rad::sin_cos(theta.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             c, s, S::zero(),
@@ -256,6 +261,7 @@ impl<S: BaseFloat> Matrix3<S> {
         let (s, c) = Rad::sin_cos(angle.into());
         let _1subc = S::one() - c;
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             _1subc * axis.x * axis.x + c,
@@ -281,6 +287,7 @@ impl<S: BaseFloat> Matrix3<S> {
 impl<S> Matrix4<S> {
     /// Create a new matrix, providing values for each index.
     #[inline]
+    #[allow(clippy::deprecated_cfg_attr)]
     #[cfg_attr(rustfmt, rustfmt_skip)]
     pub const fn new(
         c0r0: S, c0r1: S, c0r2: S, c0r3: S,
@@ -317,6 +324,7 @@ impl<S: BaseFloat> Matrix4<S> {
     /// Create a homogeneous transformation matrix from a translation vector.
     #[inline]
     pub fn from_translation(v: Vector3<S>) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             S::one(), S::zero(), S::zero(), S::zero(),
@@ -335,6 +343,7 @@ impl<S: BaseFloat> Matrix4<S> {
     /// Create a homogeneous transformation matrix from a set of scale values.
     #[inline]
     pub fn from_nonuniform_scale(x: S, y: S, z: S) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             x, S::zero(), S::zero(), S::zero(),
@@ -352,6 +361,7 @@ impl<S: BaseFloat> Matrix4<S> {
         let s = f.cross(up).normalize();
         let u = s.cross(f);
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             s.x, u.x, -f.x, S::zero(),
@@ -368,6 +378,7 @@ impl<S: BaseFloat> Matrix4<S> {
         let s = f.cross(up).normalize();
         let u = s.cross(f);
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             s.x, u.x, -f.x, S::zero(),
@@ -407,6 +418,7 @@ impl<S: BaseFloat> Matrix4<S> {
         // http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations
         let (s, c) = Rad::sin_cos(theta.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             S::one(), S::zero(), S::zero(), S::zero(),
@@ -421,6 +433,7 @@ impl<S: BaseFloat> Matrix4<S> {
         // http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations
         let (s, c) = Rad::sin_cos(theta.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             c, S::zero(), -s, S::zero(),
@@ -435,6 +448,7 @@ impl<S: BaseFloat> Matrix4<S> {
         // http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations
         let (s, c) = Rad::sin_cos(theta.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             c, s, S::zero(), S::zero(),
@@ -451,6 +465,7 @@ impl<S: BaseFloat> Matrix4<S> {
         let (s, c) = Rad::sin_cos(angle.into());
         let _1subc = S::one() - c;
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             _1subc * axis.x * axis.x + c,
@@ -481,6 +496,7 @@ impl<S: BaseFloat> Matrix4<S> {
 impl<S: BaseFloat> Zero for Matrix2<S> {
     #[inline]
     fn zero() -> Matrix2<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix2::new(
             S::zero(), S::zero(),
@@ -497,6 +513,7 @@ impl<S: BaseFloat> Zero for Matrix2<S> {
 impl<S: BaseFloat> Zero for Matrix3<S> {
     #[inline]
     fn zero() -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             S::zero(), S::zero(), S::zero(),
@@ -514,6 +531,7 @@ impl<S: BaseFloat> Zero for Matrix3<S> {
 impl<S: BaseFloat> Zero for Matrix4<S> {
     #[inline]
     fn zero() -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             S::zero(), S::zero(), S::zero(), S::zero(),
@@ -591,6 +609,7 @@ impl<S: BaseFloat> Matrix for Matrix2<S> {
     }
 
     fn transpose(&self) -> Matrix2<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix2::new(
             self[0][0], self[1][0],
@@ -604,6 +623,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix2<S> {
 
     #[inline]
     fn from_value(value: S) -> Matrix2<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix2::new(
             value, S::zero(),
@@ -613,6 +633,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix2<S> {
 
     #[inline]
     fn from_diagonal(value: Vector2<S>) -> Matrix2<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix2::new(
             value.x, S::zero(),
@@ -641,6 +662,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix2<S> {
         if det == S::zero() {
             None
         } else {
+            #[allow(clippy::deprecated_cfg_attr)]
             #[cfg_attr(rustfmt, rustfmt_skip)]
             Some(Matrix2::new(
                 self[1][1] / det, -self[0][1] / det,
@@ -690,6 +712,7 @@ impl<S: BaseFloat> Matrix for Matrix3<S> {
     }
 
     fn transpose(&self) -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             self[0][0], self[1][0], self[2][0],
@@ -704,6 +727,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix3<S> {
 
     #[inline]
     fn from_value(value: S) -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             value, S::zero(), S::zero(),
@@ -714,6 +738,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix3<S> {
 
     #[inline]
     fn from_diagonal(value: Vector3<S>) -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             value.x, S::zero(), S::zero(),
@@ -806,6 +831,7 @@ impl<S: BaseFloat> Matrix for Matrix4<S> {
     }
 
     fn transpose(&self) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             self[0][0], self[1][0], self[2][0], self[3][0],
@@ -821,6 +847,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix4<S> {
 
     #[inline]
     fn from_value(value: S) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             value, S::zero(), S::zero(), S::zero(),
@@ -832,6 +859,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix4<S> {
 
     #[inline]
     fn from_diagonal(value: Vector4<S>) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             value.x, S::zero(), S::zero(), S::zero(),
@@ -897,6 +925,7 @@ impl<S: BaseFloat> SquareMatrix for Matrix4<S> {
                 mat.determinant() * sign * inv_det
             };
 
+            #[allow(clippy::deprecated_cfg_attr)]
             #[cfg_attr(rustfmt, rustfmt_skip)]
             Some(Matrix4::new(
                 cf(0, 0), cf(0, 1), cf(0, 2), cf(0, 3),
@@ -1306,7 +1335,7 @@ macro_rules! impl_scalar_ops {
 
 impl_matrix!(Matrix2, Vector2 { x: 0, y: 1 });
 impl_matrix!(Matrix3, Vector3 { x: 0, y: 1, z: 2 });
-#[cfg_attr(rustfmt, rustfmt_skip)]
+#[rustfmt::skip]
 impl_matrix!(Matrix4, Vector4 { x: 0, y: 1, z: 2, w: 3 });
 
 macro_rules! impl_mv_operator {
@@ -1320,7 +1349,7 @@ macro_rules! impl_mv_operator {
 impl_mv_operator!(Matrix2, Vector2 { x: 0, y: 1 });
 impl_mv_operator!(Matrix3, Vector3 { x: 0, y: 1, z: 2 });
 #[cfg(not(feature = "simd"))]
-#[cfg_attr(rustfmt, rustfmt_skip)]
+#[rustfmt::skip]
 impl_mv_operator!(Matrix4, Vector4 { x: 0, y: 1, z: 2, w: 3 });
 
 #[cfg(feature = "simd")]
@@ -1418,6 +1447,7 @@ where
         let (sy, cy) = Rad::sin_cos(src.y.into());
         let (sz, cz) = Rad::sin_cos(src.z.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             cy * cz, cx * sz + sx * sy * cz, sx * sz - cx * sy * cz,
@@ -1437,6 +1467,7 @@ where
         let (sy, cy) = Rad::sin_cos(src.y.into());
         let (sz, cz) = Rad::sin_cos(src.z.into());
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             cy * cz, cx * sz + sx * sy * cz, sx * sz - cx * sy * cz, A::Unitless::zero(),
@@ -1583,6 +1614,7 @@ impl<S: BaseNum> From<Matrix2<S>> for Matrix3<S> {
     /// Clone the elements of a 2-dimensional matrix into the top-left corner
     /// of a 3-dimensional identity matrix.
     fn from(m: Matrix2<S>) -> Matrix3<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             m[0][0], m[0][1], S::zero(),
@@ -1596,6 +1628,7 @@ impl<S: BaseNum> From<Matrix2<S>> for Matrix4<S> {
     /// Clone the elements of a 2-dimensional matrix into the top-left corner
     /// of a 4-dimensional identity matrix.
     fn from(m: Matrix2<S>) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             m[0][0], m[0][1], S::zero(), S::zero(),
@@ -1610,6 +1643,7 @@ impl<S: BaseNum> From<Matrix3<S>> for Matrix4<S> {
     /// Clone the elements of a 3-dimensional matrix into the top-left corner
     /// of a 4-dimensional identity matrix.
     fn from(m: Matrix3<S>) -> Matrix4<S> {
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             m[0][0], m[0][1], m[0][2], S::zero(),

@@ -428,6 +428,7 @@ impl<S: BaseNum> From<Quaternion<S>> for Matrix3<S> {
         let sz2 = z2 * quat.s;
         let sx2 = x2 * quat.s;
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix3::new(
             S::one() - yy2 - zz2, xy2 + sz2, xz2 - sy2,
@@ -456,6 +457,7 @@ impl<S: BaseNum> From<Quaternion<S>> for Matrix4<S> {
         let sz2 = z2 * quat.s;
         let sx2 = x2 * quat.s;
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             S::one() - yy2 - zz2, xy2 + sz2, xz2 - sy2, S::zero(),

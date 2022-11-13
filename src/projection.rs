@@ -163,6 +163,7 @@ impl<S: BaseFloat> From<PerspectiveFov<S>> for Matrix4<S> {
         let c3r2 = (two * persp.far * persp.near) / (persp.near - persp.far);
         let c3r3 = S::zero();
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             c0r0, c0r1, c0r2, c0r3,
@@ -228,6 +229,7 @@ impl<S: BaseFloat> From<Perspective<S>> for Matrix4<S> {
         let c3r2 = -(two * persp.far * persp.near) / (persp.far - persp.near);
         let c3r3 = S::zero();
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             c0r0, c0r1, c0r2, c0r3,
@@ -274,6 +276,7 @@ impl<S: BaseFloat> From<Ortho<S>> for Matrix4<S> {
         let c3r2 = -(ortho.far + ortho.near) / (ortho.far - ortho.near);
         let c3r3 = S::one();
 
+        #[allow(clippy::deprecated_cfg_attr)]
         #[cfg_attr(rustfmt, rustfmt_skip)]
         Matrix4::new(
             c0r0, c0r1, c0r2, c0r3,
