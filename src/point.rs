@@ -654,3 +654,30 @@ impl<F: std::fmt::Debug + Clone + Copy + PartialEq + rstar::RTreeNum> rstar::Poi
         }
     }
 }
+
+#[cfg(feature = "rstar")]
+impl<F: std::fmt::Debug + Clone + Copy + PartialEq + rstar::RTreeNum> rstar::Point for Point2<F> {
+    type Scalar = F;
+
+    const DIMENSIONS: usize = 2;
+
+    fn generate(mut generator: impl FnMut(usize) -> Self::Scalar) -> Self {
+        crate::point2(generator(0), generator(1))
+    }
+
+    fn nth(&self, index: usize) -> Self::Scalar {
+        match index {
+            0 => self.x,
+            1 => self.y,
+            _ => unreachable!(),
+        }
+    }
+
+    fn nth_mut(&mut self, index: usize) -> &mut Self::Scalar {
+        match index {
+            0 => &mut self.x,
+            1 => &mut self.y,
+            _ => unreachable!(),
+        }
+    }
+}
